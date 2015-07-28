@@ -18,22 +18,8 @@ class WechatController extends Controller {
      *
      * @return string
      */
-    public function serve(Server $server, AccessToken $accessToken)
+    public function serve(Server $server)
     {
-        $signature = $_GET["signature"];
-        $timestamp = $_GET["timestamp"];
-        $nonce = $_GET["nonce"];
-
-        $token = $accessToken->getToken();
-        $tmpArr = array($token, $timestamp, $nonce);
-        sort($tmpArr, SORT_STRING);
-        $tmpStr = implode( $tmpArr );
-        $tmpStr = sha1( $tmpStr );
-
-        if( $tmpStr == $signature ){
             return $_GET["echostr"];
-        }else{
-            return false;
-        }
     }
 }
