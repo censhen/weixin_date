@@ -15,5 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// for wechat
 Route::any('/wechat', 'WechatController@serve');
 Route::any('/wechat/set_menu', 'WechatController@setMenu');
+
+// frontend
+Route::get('/apply', 'FrontendController@getApply');
+Route::post('/apply', 'FrontendController@postApply');
+
+// backend
