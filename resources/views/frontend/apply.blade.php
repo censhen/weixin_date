@@ -20,6 +20,7 @@
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
+                    <div class="col-xs-10">
                     <select class="form-control">
                         <option>年龄</option>
                         <option value="18">18</option>
@@ -41,37 +42,42 @@
                         <option value="34">34</option>
                         <option value="35">35</option>
                     </select>
+                    </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
-                    <label class="col-lg-2 control-label">身高</label>
                     <div class="col-lg-10">
-                        <input class="form-control" type="text" placeholder="身高">
+                        <input class="form-control" type="text" placeholder="身高 (单位:厘米)">
                         <span class="help-block">单位(cm)</span>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
-                    <label class="col-lg-2 control-label">体重</label>
                     <div class="col-lg-10">
-                        <input class="form-control" type="text" placeholder="体重">
-                        <span class="help-block">单位(kg)</span>
+                        <input class="form-control" type="text" placeholder="体重 (单位:kg)">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
-                    <label class="col-lg-2 control-label">爱好、特长</label>
+                    <div class="col-lg-10">
+                        <textarea class="form-control" rows="5" placeholder="期望目标"></textarea>
+                    </div><!-- /.col -->
+                </div><!-- /form-group -->
+                <div class="form-group">
                     <div class="col-lg-10">
                         <input class="form-control" type="text" placeholder="爱好、特长">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
-                    <label class="col-lg-2 control-label">自我介绍</label>
                     <div class="col-lg-10">
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea class="form-control" rows="5" placeholder="自我介绍"></textarea>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
-                    <label class="col-lg-2 control-label">目标描述</label>
-                    <div class="col-lg-10">
-                        <textarea class="form-control" rows="5"></textarea>
+                    <label class="col-xs-2 control-label">上传照片1</label>
+                    <div class="col-xs-10">
+                        <input type="file">
+                    </div><!-- /.col -->
+                    <label class="col-xs-2 control-label">上传照片2</label>
+                    <div class="col-xs-10">
+                        <input type="file">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
 
