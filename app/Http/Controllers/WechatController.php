@@ -25,7 +25,7 @@ class WechatController extends Controller {
             return $_GET["echostr"];
     }
 
-    public function setMenu(Menu $menu)
+    public function setMenu(Menu $wechat_menu)
     {
         $raw_menu = [
             [
@@ -53,7 +53,7 @@ class WechatController extends Controller {
             $target[] = $item;
         }
 
-        $menu->set($target);
+        $wechat_menu->set($target);
 
         return "自定义菜单成功";
     }
