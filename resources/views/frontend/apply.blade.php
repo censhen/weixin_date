@@ -6,8 +6,8 @@
         <div class="text-center content-padding">
             <form id="formToggleLine" class="form-horizontal no-margin form-border">
                 <div class="form-group">
-                    <label class="col-lg-2 control-label">姓名</label>
-                    <div class="col-lg-10">
+                    <label class="col-xs-2 control-label">姓名</label>
+                    <div class="col-xs-10">
                         <input class="form-control" type="text" placeholder="input here...">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
