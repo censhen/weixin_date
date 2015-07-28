@@ -7,6 +7,7 @@
  */
 use Overtrue\Wechat\Server;
 use Log;
+use Overtrue\Wechat\AccessToken;
 
 class WechatController extends Controller {
 
@@ -17,12 +18,22 @@ class WechatController extends Controller {
      *
      * @return string
      */
-    public function serve(Server $server)
+    public function serve(Server $server, AccessToken $accessToken)
     {
-        $server->on('message', function($message){
-            return "欢迎关注 overtrue！";
-        });
+        $signature = $_GET["signature"];
+        $timestamp = $_GET["timestamp"];
+        $nonce = $_GET["nonce"];
 
-        return $server->serve(); // 或者 return $server;
+        $token = $accessToken->getToken();
+        $tmpArr = array($token, $timestamp, $nonce);
+        sort($tmpArr, SORT_STRING);
+        $tmpStr = implode( $tmpArr );
+        $tmpStr = sha1( $tmpStr );
+
+        if( $tmpStr == $signature ){
+            return $_GET["echostr"];
+        }else{
+            return false;
+        }
     }
 }
