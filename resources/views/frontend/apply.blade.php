@@ -46,8 +46,7 @@
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <input class="form-control" type="text" placeholder="身高 (单位:厘米)">
-                        <span class="help-block">单位(cm)</span>
+                        <input class="form-control" type="text" placeholder="身高 (单位:cm)">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
@@ -57,7 +56,7 @@
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <textarea class="form-control" rows="5" placeholder="期望目标"></textarea>
+                        <textarea class="form-control" rows="5" placeholder="期望寻求目标"></textarea>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
@@ -71,17 +70,18 @@
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
-                    <label class="col-xs-2 control-label">上传照片1</label>
-                    <div class="col-xs-10">
-                        <input type="file">
-                    </div><!-- /.col -->
-                    <label class="col-xs-2 control-label">上传照片2</label>
+                    <label class="col-xs-2 control-label">上传照片 1</label>
                     <div class="col-xs-10">
                         <input type="file">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
-
-                <button type="submit" class="btn btn-sm btn-success">提交</button>
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">上传照片 2</label>
+                    <div class="col-xs-10">
+                        <input type="file">
+                    </div><!-- /.col -->
+                </div><!-- /form-group -->
+                <button type="submit" class="btn btn-lg btn-success">提交</button>
             </form>
         </div>
     </div>
