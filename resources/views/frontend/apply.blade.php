@@ -6,14 +6,13 @@
         <div class="text-center content-padding">
             <form id="formToggleLine" class="form-horizontal no-margin form-border">
                 <div class="form-group">
-                    <label class="col-xs-2 control-label">姓名</label>
-                    <div class="col-xs-10">
-                        <input class="form-control" type="text" placeholder="input here...">
+                    <div class="col-xs-12">
+                        <input class="form-control" type="text" placeholder="姓名">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
-                    <label class="col-lg-2 control-label">性别</label>
-                    <div class="col-lg-10">
+                    <label class="col-xs-2 control-label">性别</label>
+                    <div class="col-xs-10">
                         <select class="form-control">
                             <option>男</option>
                             <option>女</option>
@@ -23,20 +22,20 @@
                 <div class="form-group">
                     <label class="col-lg-2 control-label">年龄</label>
                     <div class="col-lg-10">
-                        <input class="form-control" type="text" placeholder="input here...">
+                        <input class="form-control" type="text" placeholder="年龄">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <label class="col-lg-2 control-label">身高</label>
                     <div class="col-lg-10">
-                        <input class="form-control" type="text" placeholder="input here...">
+                        <input class="form-control" type="text" placeholder="身高">
                         <span class="help-block">单位(cm)</span>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <label class="col-lg-2 control-label">体重</label>
                     <div class="col-lg-10">
-                        <input class="form-control" type="text" placeholder="input here...">
+                        <input class="form-control" type="text" placeholder="体重">
                         <span class="help-block">单位(kg)</span>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
@@ -49,13 +48,13 @@
                 <div class="form-group">
                     <label class="col-lg-2 control-label">自我介绍</label>
                     <div class="col-lg-10">
-                        <textarea class="form-control" rows="3"></textarea>
+                        <textarea class="form-control" rows="5"></textarea>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <label class="col-lg-2 control-label">目标描述</label>
                     <div class="col-lg-10">
-                        <textarea class="form-control" rows="3"></textarea>
+                        <textarea class="form-control" rows="5"></textarea>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
 
