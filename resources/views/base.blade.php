@@ -65,12 +65,6 @@
                 <p class="font-lg">美锦红娘</p>
                 <p><small>@copyright 2015</small></p>
             </div><!-- /.col -->
-            <div class="col-sm-6 padding-md">
-                <p class="font-lg">Contact</p>
-                Email : abc@123.com
-                <div class="seperator"></div>
-                <a class="btn btn-info" href="/contact"><i class="fa fa-envelope"></i> abc@123.com</a>
-            </div><!-- /.col -->
         </div><!-- /.row -->
     </div>
 </footer>
@@ -118,18 +112,6 @@
 <!-- Endless -->
 <script src="/js/endless/endless.js"></script>
 @yield('bottom_js')
-
-<script>
-    $(function()	{
-        $('.animated-element').waypoint(function() {
-
-            $(this).removeClass('no-animation');
-
-        }, { offset: '70%' });
-
-        $('.nav').localScroll({duration:800});
-    });
-</script>
 
 </body>
 </html>

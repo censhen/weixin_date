@@ -6,12 +6,17 @@
         <div class="text-center content-padding">
             <form id="formToggleLine" class="form-horizontal no-margin form-border" method="post">
                 <div class="form-group">
-                    <div class="col-xs-10">
+                    <div class="col-lg-10">
                         <input class="form-control" type="text" name="name" placeholder="姓名">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
-                    <div class="col-xs-10">
+                    <div class="col-lg-10">
+                        <input class="form-control" type="text" name="wechat_account" placeholder="微信号">
+                    </div><!-- /.col -->
+                </div><!-- /form-group -->
+                <div class="form-group">
+                    <div class="col-lg-10">
                         <select name="gender" class="form-control">
                             <option>性别</option>
                             <option value="0">男</option>
@@ -20,7 +25,7 @@
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
-                    <div class="col-xs-10">
+                    <div class="col-lg-10">
                     <select name="age" class="form-control">
                         <option>年龄</option>
                         <option value="18">18</option>
