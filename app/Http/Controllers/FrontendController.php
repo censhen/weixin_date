@@ -39,9 +39,18 @@ class FrontendController extends Controller {
         return view('frontend.apply');
     }
 
-    public function postApply()
+    public function postApply(Request $request)
     {
+        $v = Validator::make($request->all(), [
+            'title' => 'required|unique|max:255',
+            'body' => 'required',
+        ]);
 
+        if ($v->fails()) {
+            return redirect()->back()->withErrors($v->errors());
+        } else {
+
+        }
     }
 
 }

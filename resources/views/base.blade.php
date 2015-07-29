@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Morfin's Workshop</title>
+    <title>美锦红娘</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -37,7 +37,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand"><span class="text-danger">Morfin's </span> Workshop</a>
+            <a href="/" class="navbar-brand"><span class="text-danger">美锦 </span> 红娘</a>
         </div>
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
             <ul class="nav navbar-nav navbar-right">
@@ -61,41 +61,11 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-sm-3 padding-md">
-                <p class="font-lg">Morfin's Workshop</p>
+            <div class="col-sm-6 padding-md">
+                <p class="font-lg">美锦红娘</p>
                 <p><small>@copyright 2015</small></p>
             </div><!-- /.col -->
-            <div class="col-sm-3 padding-md">
-                <p class="font-lg">Useful Links</p>
-                <ul class="list-unstyled useful-link">
-                    <li>
-                        <a href="/">
-                            <small><i class="fa fa-chevron-right"></i> Home</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/login">
-                            <small><i class="fa fa-chevron-right"></i> Login</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/posts">
-                            <small><i class="fa fa-chevron-right"></i> Posts</small>
-                        </a>
-                    </li>
-                </ul>
-            </div><!-- /.col -->
-            <div class="col-sm-3 padding-md">
-                <p class="font-lg">Groups</p>
-                <ul class="list-unstyled useful-link">
-                    <li>
-                        <a href="/category/">
-                            <small><i class="fa fa-chevron-right"></i>name</small>
-                        </a>
-                    </li>
-                </ul>
-            </div><!-- /.col -->
-            <div class="col-sm-3 padding-md">
+            <div class="col-sm-6 padding-md">
                 <p class="font-lg">Contact</p>
                 Email : abc@123.com
                 <div class="seperator"></div>
