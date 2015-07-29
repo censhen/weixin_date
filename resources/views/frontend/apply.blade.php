@@ -5,6 +5,8 @@
     <div class="bg-white">
         <div class="text-center content-padding">
             <form id="formToggleLine" class="form-horizontal no-margin" method="post">
+                <h3>基本信息:</h3>
+                <hr>
                 <div class="form-group">
                     <div class="col-lg-10">
                         <input class="form-control" type="text" name="name" placeholder="姓名">
@@ -64,6 +66,7 @@
                         <input name="weight" class="form-control" type="text" placeholder="体重 (单位:kg)">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
+                <h3>额外信息:</h3>
                 <hr>
                 <div class="form-group">
                     <div class="col-lg-10">
@@ -80,6 +83,7 @@
                         <textarea name="expectation" class="form-control" rows="5" placeholder="期望寻求目标"></textarea>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
+                <h3>照片:</h3>
                 <hr>
                 <div class="form-group">
                     <label class="col-xs-2 control-label">上传照片 1</label>
@@ -93,6 +97,7 @@
                         <input name="photo2" type="file">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
+                <hr>
                 <button type="submit" class="btn btn-lg btn-success">提交</button>
             </form>
         </div>
