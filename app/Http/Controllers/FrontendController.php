@@ -5,6 +5,8 @@
  * Date: 15-7-28
  * Time: 下午3:56
  */
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller {
 
@@ -39,17 +41,18 @@ class FrontendController extends Controller {
         return view('frontend.apply');
     }
 
-    public function postApply(Request $request)
+    public function postApply()
     {
-        $v = Validator::make($request->all(), [
-            'title' => 'required|unique|max:255',
-            'body' => 'required',
+        $v = Validator::make(Request::all(), [
+//            'title' => 'required|unique|max:255',
+//            'body' => 'required',
         ]);
 
         if ($v->fails()) {
-            return redirect()->back()->withErrors($v->errors());
+            return 'failed';
+//            return redirect()->back()->withErrors($v->errors());
         } else {
-
+            return view('frontend.confirmed');
         }
     }
 

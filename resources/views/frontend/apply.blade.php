@@ -4,7 +4,7 @@
 <div id="container">
     <div class="bg-white">
         <div class="text-center content-padding">
-            <form id="formToggleLine" class="form-horizontal no-margin form-border" method="post">
+            <form id="formToggleLine" class="form-horizontal no-margin" method="post">
                 <div class="form-group">
                     <div class="col-lg-10">
                         <input class="form-control" type="text" name="name" placeholder="姓名">
@@ -64,6 +64,7 @@
                         <input name="weight" class="form-control" type="text" placeholder="体重 (单位:kg)">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
+                <hr>
                 <div class="form-group">
                     <div class="col-lg-10">
                         <input name="interest" class="form-control" type="text" placeholder="爱好、特长">
@@ -79,6 +80,7 @@
                         <textarea name="expectation" class="form-control" rows="5" placeholder="期望寻求目标"></textarea>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
+                <hr>
                 <div class="form-group">
                     <label class="col-xs-2 control-label">上传照片 1</label>
                     <div class="col-xs-10">
