@@ -30,8 +30,9 @@ class WechatController extends Controller {
 
             return Message::make('text')->content('感谢您关注');
         });
-
-        return $_GET["echostr"];
+        $res = $server->serve();
+        return $res;
+//        return $_GET["echostr"];
     }
 
     public function setMenu(Menu $wechat_menu)
