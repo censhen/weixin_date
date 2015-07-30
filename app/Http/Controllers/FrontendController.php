@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 use Log;
 use App\User;
-use Overtrue\Wechat\Message;
 
 class FrontendController extends Controller {
 
@@ -92,19 +91,4 @@ class FrontendController extends Controller {
             return view('frontend.confirmed');
         }
     }
-
-    public function getShowUser()
-    {
-        $news = Message::make('news')->items(function(){
-            return array(
-                Message::make('news_item')->title('测试标题'),
-                Message::make('news_item')->title('测试标题2')->description('好不好？'),
-                Message::make('news_item')->title('测试标题3')->description('好不好说句话？')->url('http://baidu.com'),
-                Message::make('news_item')->title('测试标题4')->url('http://baidu.com/abc.php')->picUrl('http://www.baidu.com/demo.jpg'),
-            );
-        });
-
-        return $news;
-    }
-
 }

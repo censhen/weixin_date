@@ -8,6 +8,8 @@
 use Overtrue\Wechat\Menu;
 use Overtrue\Wechat\MenuItem;
 use Overtrue\Wechat\Server;
+use Overtrue\Wechat\Message;
+
 use Log;
 use Overtrue\Wechat\AccessToken;
 
@@ -33,6 +35,11 @@ class WechatController extends Controller {
                 "type"=>"view",
                 "key"=>"http://123.56.106.172/apply",
             ],
+            [
+                "name"=>"我要查看",
+                "type"=>"view",
+                "key"=>"http://123.56.106.172/show",
+            ],
         ];
 
         // 构建你的菜单
@@ -57,4 +64,19 @@ class WechatController extends Controller {
 
         return "自定义菜单成功";
     }
+
+    public function getShowUser(Server $server)
+    {
+        $news = Message::make('news')->items(function(){
+            return array(
+                Message::make('news_item')->title('测试标题'),
+                Message::make('news_item')->title('测试标题2')->description('好不好？'),
+                Message::make('news_item')->title('测试标题3')->description('好不好说句话？')->url('http://baidu.com'),
+                Message::make('news_item')->title('测试标题4')->url('http://baidu.com/abc.php')->picUrl('http://www.baidu.com/demo.jpg'),
+            );
+        });
+
+        return $server->serve();
+    }
+
 }
