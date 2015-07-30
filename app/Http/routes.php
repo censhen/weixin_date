@@ -18,7 +18,7 @@ Route::get('/', function () {
 // for wechat
 Route::any('/wechat', 'WechatController@serve');
 Route::any('/wechat/set_menu', 'WechatController@setMenu');
-Route::any('/show', 'WechatController@getShowUser');
+Route::any('/wechat/show', 'WechatController@getShowUser');
 
 // frontend
 Route::get('/apply', 'FrontendController@getApply');

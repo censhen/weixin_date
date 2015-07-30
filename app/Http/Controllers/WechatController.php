@@ -24,7 +24,14 @@ class WechatController extends Controller {
      */
     public function serve(Server $server)
     {
-            return $_GET["echostr"];
+        $server->on('event', function($event) {
+
+            error_log('收到关注事件，关注者openid: ' . $event['FromUserName']);
+
+            return Message::make('text')->content('感谢您关注');
+        });
+        
+        return $_GET["echostr"];
     }
 
     public function setMenu(Menu $wechat_menu)
@@ -37,8 +44,8 @@ class WechatController extends Controller {
             ],
             [
                 "name"=>"我要查看",
-                "type"=>"view",
-                "key"=>"http://123.56.106.172/show",
+                "type"=>"click",
+                "key"=>"SHOW_USER",
             ],
         ];
 
