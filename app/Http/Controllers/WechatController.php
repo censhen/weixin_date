@@ -30,7 +30,7 @@ class WechatController extends Controller {
 
             return Message::make('text')->content('感谢您关注');
         });
-        
+
         return $_GET["echostr"];
     }
 
