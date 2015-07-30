@@ -70,8 +70,8 @@
 <!--                <div class="form-group">-->
 <!--                    <div class="col-lg-10">-->
 <!--                        <input name="weight" class="form-control" type="text" placeholder="体重 (单位:kg)">-->
-<!--                    </div><!-- /.col -->-->
-<!--                </div><!-- /form-group -->-->
+<!--                    </div>-->
+<!--                </div>-->
                 <h3>额外信息:</h3>
                 <hr>
                 <div class="form-group">
