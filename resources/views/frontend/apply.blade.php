@@ -4,7 +4,13 @@
 <div id="container">
     <div class="bg-white">
         <div class="text-center content-padding">
-            <form id="formToggleLine" class="form-horizontal no-margin" method="post">
+            <form id="formToggleLine" class="form-horizontal no-margin" method="post" enctype="multipart/form-data" >
+                @if($errors->has())
+                @foreach ($errors->all() as $error)
+                <div class="panel-danger">{{ $error }}</div>
+                @endforeach
+                @endif
+
                 <h3>基本信息:</h3>
                 <hr>
                 <div class="form-group">
@@ -20,16 +26,16 @@
                 <div class="form-group">
                     <div class="col-lg-10">
                         <select name="gender" class="form-control">
-                            <option>性别</option>
-                            <option value="0">男</option>
-                            <option value="1">女</option>
+                            <option value="0">性别</option>
+                            <option value="1">男</option>
+                            <option value="2">女</option>
                         </select>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <div class="col-lg-10">
                     <select name="age" class="form-control">
-                        <option>年龄</option>
+                        <option value="0">年龄</option>
                         <option value="18">18</option>
                         <option value="19">19</option>
                         <option value="20">20</option>
@@ -61,11 +67,11 @@
                         <input name="height" class="form-control" type="text" placeholder="身高 (单位:cm)">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
-                <div class="form-group">
-                    <div class="col-lg-10">
-                        <input name="weight" class="form-control" type="text" placeholder="体重 (单位:kg)">
-                    </div><!-- /.col -->
-                </div><!-- /form-group -->
+<!--                <div class="form-group">-->
+<!--                    <div class="col-lg-10">-->
+<!--                        <input name="weight" class="form-control" type="text" placeholder="体重 (单位:kg)">-->
+<!--                    </div><!-- /.col -->-->
+<!--                </div><!-- /form-group -->-->
                 <h3>额外信息:</h3>
                 <hr>
                 <div class="form-group">

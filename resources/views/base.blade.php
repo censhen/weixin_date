@@ -39,16 +39,6 @@
             </button>
             <a href="/" class="navbar-brand"><span class="text-danger">美瑾 </span> 红娘</a>
         </div>
-        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="/" class="top-link">HOME </a>
-                </li>
-                <li>
-                    <a href="/login" class="top-link">LOGIN </a>
-                </li>
-            </ul>
-        </nav>
     </div>
 </header>
 
