@@ -27,11 +27,11 @@ class WechatController extends Controller {
         $server->on('event', function($event) {
 
             error_log('收到关注事件，关注者openid: ' . $event['FromUserName']);
-
+            Log::info('recieve event');
             return Message::make('text')->content('感谢您关注');
         });
-        $res = $server->serve();
-        return $res;
+//        $res = $server->serve();
+//        return $res;
 //        return $_GET["echostr"];
     }
 
