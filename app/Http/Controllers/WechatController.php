@@ -24,6 +24,7 @@ class WechatController extends Controller {
      */
     public function serve(Server $server)
     {
+        Log::info('recieve event');
         $server->on('event','click', function($event) {
 
             error_log('收到关注事件，关注者openid: ' . $event['FromUserName']);
