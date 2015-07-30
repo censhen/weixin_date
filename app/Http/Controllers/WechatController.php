@@ -5,13 +5,12 @@
  * Date: 15-7-27
  * Time: 下午2:56
  */
-use App\Http\Requests\Request;
 use Overtrue\Wechat\Menu;
 use Overtrue\Wechat\MenuItem;
 use Overtrue\Wechat\Server;
 use Overtrue\Wechat\Message;
 
-use Log;
+use Log, Request;
 use Overtrue\Wechat\AccessToken;
 
 class WechatController extends Controller {
