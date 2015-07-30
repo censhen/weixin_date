@@ -5,6 +5,7 @@
  * Date: 15-7-27
  * Time: 下午2:56
  */
+use App\Http\Requests\Request;
 use Overtrue\Wechat\Menu;
 use Overtrue\Wechat\MenuItem;
 use Overtrue\Wechat\Server;
@@ -24,6 +25,7 @@ class WechatController extends Controller {
      */
     public function serve(Server $server)
     {
+        Log::info(Request::all());
         $server->on('event','click', function($event) {
             error_log('收到关注事件，关注者openid: ' . $event['FromUserName']);
             Log::info('recieve event');
