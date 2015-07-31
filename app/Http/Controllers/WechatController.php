@@ -25,6 +25,7 @@ class WechatController extends Controller {
     public function serve(Server $server)
     {
         Log::info(Request::all());
+        Log::info(file_get_contents('php://input'));
         $server->on('event', function($event) {
             Log::info('收到关注事件，关注者openid: ' . $event['FromUserName']);
             return Message::make('text')->content('感谢您关注');
