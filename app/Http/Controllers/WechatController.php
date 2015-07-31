@@ -15,6 +15,9 @@ use Overtrue\Wechat\AccessToken;
 
 class WechatController extends Controller {
 
+    const EVENT_SHOW_USER = 'SHOW_USER';
+
+
     /**
      * 处理微信的请求消息
      *
@@ -24,16 +27,32 @@ class WechatController extends Controller {
      */
     public function serve(Server $server)
     {
-        Log::info(Request::all());
-        Log::info(file_get_contents('php://input'));
-        $server->on('event', function($event) {
-            Log::info('收到关注事件，关注者openid: ' . $event['FromUserName']);
-            return Message::make('text')->content('感谢您关注');
+        // 只监听指定类型事件
+        $server->on('event', 'subscribe', function($event) {
+            Log::info('subscribe: ' . $event['FromUserName']);
+            return Message::make('text')->content('感谢您关注晓瑾红娘公众号！');
+        });
+
+        $server->on('event', 'click', function($event) {
+            Log::info(': ' . $event['FromUserName']);
+            if($event['EventKey'] == self::EVENT_SHOW_USER) {
+                $news = Message::make('news')->items(function(){
+                    return array(
+                        Message::make('news_item')->title('测试标题'),
+                        Message::make('news_item')->title('测试标题2')->description('好不好？'),
+                        Message::make('news_item')->title('测试标题3')->description('好不好说句话？')->url('http://baidu.com'),
+                        Message::make('news_item')->title('测试标题4')->url('http://baidu.com/abc.php')->picUrl('http://www.baidu.com/demo.jpg'),
+                    );
+                });
+
+                return $news;
+            } else {
+
+            }
         });
         $res = $server->serve();
 
         return $res;
-//        return $_GET["echostr"];
     }
 
     public function setMenu(Menu $wechat_menu)
