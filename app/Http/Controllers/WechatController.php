@@ -83,7 +83,7 @@ class WechatController extends Controller {
                         "key"=>"SHOW_BOYS",
                     ],
                     [
-                        "name"=>"我要男生",
+                        "name"=>"我要女生",
                         "type"=>"click",
                         "key"=>"SHOW_GIRLS",
                     ],
