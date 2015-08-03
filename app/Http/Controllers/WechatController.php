@@ -14,7 +14,6 @@ use Log, Request;
 use Overtrue\Wechat\AccessToken;
 
 class WechatController extends Controller {
-
     const EVENT_SHOW_BOYS = 'SHOW_BOYS';
     const EVENT_SHOW_GIRLS = 'SHOW_GIRLS';
 

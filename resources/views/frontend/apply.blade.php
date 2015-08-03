@@ -5,13 +5,13 @@
     <div class="bg-white">
         <div class="text-center content-padding">
             <form id="formToggleLine" class="form-horizontal no-margin" method="post" enctype="multipart/form-data" >
+                <p>要脱单的小伙伴们，欢迎来到这里。我们追求优质可靠的嘉宾，所以我们推崇人脉网络推荐，熟人介绍嘉宾参的方式交友，品质高保证。我们希望您的关注和参与，能高效精准快捷地找到Mr/Mrs Right。</p>
+                <h3>基本信息:</h3>
                 @if($errors->has())
                 @foreach ($errors->all() as $error)
                 <div class="panel-danger">{{ $error }}</div>
                 @endforeach
                 @endif
-
-                <h3>基本信息:</h3>
                 <hr>
                 <div class="form-group">
                     <div class="col-lg-10">
