@@ -14,7 +14,7 @@ class AlterUserAddMore extends Migration
     {
         Schema::table('users', function($table)
         {
-            $table->string('wechat_account');
+            $table->string('wechat_account')->nullable();
             $table->tinyInteger('gender')->default(0);
             $table->tinyInteger('age')->default(0);
             $table->string('city')->nullable();
@@ -27,6 +27,7 @@ class AlterUserAddMore extends Migration
             $table->string('photo1')->nullable();
             $table->string('photo2')->nullable();
             $table->string('photo3')->nullable();
+            $table->integer('type')->default(0);
         });
     }
 
@@ -52,6 +53,7 @@ class AlterUserAddMore extends Migration
             $table->dropColumn('photo1');
             $table->dropColumn('photo2');
             $table->dropColumn('photo3');
+            $table->dropColumn('type');
         });
     }
 }

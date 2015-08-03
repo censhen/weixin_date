@@ -76,6 +76,7 @@ class FrontendController extends Controller {
             $user->interest = Request::input('interest');
             $user->self_intro = Request::input('self_intro');
             $user->expectation = Request::input('expectation');
+            $user->type = User::TYPE_MEMBER;
 
             $file_extension = Request::file('photo1')->getClientOriginalExtension();
             Request::file('photo1')->move('photos', $user->name."_01.".$file_extension);
