@@ -18,10 +18,10 @@ Route::get('/', function () {
 // for wechat
 Route::any('/wechat', 'WechatController@serve');
 Route::any('/wechat/set_menu', 'WechatController@setMenu');
-Route::any('/wechat/show', 'WechatController@getShowUser');
 
 // frontend
 Route::get('/apply', 'FrontendController@getApply');
 Route::post('/apply', 'FrontendController@postApply');
 
 // backend
+Route::get('/backend/show', 'BackendController@getShowAll');

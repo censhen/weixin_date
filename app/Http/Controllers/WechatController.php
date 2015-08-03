@@ -15,8 +15,8 @@ use Overtrue\Wechat\AccessToken;
 
 class WechatController extends Controller {
 
-    const EVENT_SHOW_USER = 'SHOW_USER';
-
+    const EVENT_SHOW_BOYS = 'SHOW_BOYS';
+    const EVENT_SHOW_GIRLS = 'SHOW_GIRLS';
 
     /**
      * 处理微信的请求消息
@@ -27,31 +27,40 @@ class WechatController extends Controller {
      */
     public function serve(Server $server)
     {
-        // 只监听指定类型事件
+        // 欢迎订阅
         $server->on('event', 'subscribe', function($event) {
             Log::info('subscribe: ' . $event['FromUserName']);
             return Message::make('text')->content('感谢您关注晓瑾红娘公众号！');
         });
 
+        // 自定义菜单事件
         $server->on('event', 'click', function($event) {
-            Log::info(': ' . $event['FromUserName']);
-            if($event['EventKey'] == self::EVENT_SHOW_USER) {
+            Log::info('event: ' . $event['FromUserName']);
+            if($event['EventKey'] == self::EVENT_SHOW_BOYS) {
+
                 $news = Message::make('news')->items(function(){
                     return array(
-                        Message::make('news_item')->title('测试标题'),
+                        Message::make('news_item')->title('查看男生'),
                         Message::make('news_item')->title('测试标题2')->description('好不好？'),
                         Message::make('news_item')->title('测试标题3')->description('好不好说句话？')->url('http://baidu.com'),
                         Message::make('news_item')->title('测试标题4')->url('http://baidu.com/abc.php')->picUrl('http://www.baidu.com/demo.jpg'),
                     );
                 });
-
                 return $news;
-            } else {
-
+            } elseif($event['EventKey'] == self::EVENT_SHOW_GIRLS) {
+                $news = Message::make('news')->items(function(){
+                    return array(
+                        Message::make('news_item')->title('查看女生'),
+                        Message::make('news_item')->title('测试标题2')->description('好不好？'),
+                        Message::make('news_item')->title('测试标题3')->description('好不好说句话？')->url('http://baidu.com'),
+                        Message::make('news_item')->title('测试标题4')->url('http://baidu.com/abc.php')->picUrl('http://www.baidu.com/demo.jpg'),
+                    );
+                });
+                return $news;
             }
         });
-        $res = $server->serve();
 
+        $res = $server->serve();
         return $res;
     }
 
@@ -64,9 +73,21 @@ class WechatController extends Controller {
                 "key"=>"http://123.56.106.172/apply",
             ],
             [
-                "name"=>"我要查看",
-                "type"=>"click",
-                "key"=>"SHOW_USER",
+                "name" => "查看会员",
+                "type" => null,
+                "key" => null,
+                "buttons" => [
+                    [
+                        "name"=>"我要男生",
+                        "type"=>"click",
+                        "key"=>"SHOW_BOYS",
+                    ],
+                    [
+                        "name"=>"我要男生",
+                        "type"=>"click",
+                        "key"=>"SHOW_GIRLS",
+                    ],
+                ]
             ],
         ];
 
@@ -92,19 +113,4 @@ class WechatController extends Controller {
 
         return "自定义菜单成功";
     }
-
-    public function getShowUser(Server $server)
-    {
-        $news = Message::make('news')->items(function(){
-            return array(
-                Message::make('news_item')->title('测试标题'),
-                Message::make('news_item')->title('测试标题2')->description('好不好？'),
-                Message::make('news_item')->title('测试标题3')->description('好不好说句话？')->url('http://baidu.com'),
-                Message::make('news_item')->title('测试标题4')->url('http://baidu.com/abc.php')->picUrl('http://www.baidu.com/demo.jpg'),
-            );
-        });
-
-        return $server->serve();
-    }
-
 }
