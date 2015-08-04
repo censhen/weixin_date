@@ -15,12 +15,12 @@
                 <hr>
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <input class="form-control" type="text" name="name" placeholder="姓名">
+                        <input class="form-control" type="text" name="name" value="{{Request::old('name')}}" placeholder="姓名">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <input class="form-control" type="text" name="wechat_account" placeholder="微信号">
+                        <input class="form-control" type="text" name="wechat_account" value="{{Request::old('wechat_account')}}" placeholder="微信号">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
@@ -59,12 +59,12 @@
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <input name="city" class="form-control" type="text" placeholder="目前居住地">
+                        <input name="city" class="form-control" type="text" value="{{Request::old('city')}}"  placeholder="目前居住地">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <input name="height" class="form-control" type="text" placeholder="身高 (单位:cm)">
+                        <input name="height" class="form-control" type="text" value="{{Request::old('height')}}"  placeholder="身高 (单位:cm)">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
 <!--                <div class="form-group">-->
@@ -76,17 +76,17 @@
                 <hr>
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <input name="interest" class="form-control" type="text" placeholder="爱好、特长">
+                        <input name="interest" class="form-control" type="text" value="{{Request::old('interest')}}"  placeholder="爱好、特长">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <textarea name="self_intro" class="form-control" rows="5" placeholder="自我介绍"></textarea>
+                        <textarea name="self_intro" class="form-control" rows="5" placeholder="自我介绍">{{Request::old('self_intro')}}</textarea>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <textarea name="expectation" class="form-control" rows="5" placeholder="期望寻求目标"></textarea>
+                        <textarea name="expectation" class="form-control" rows="5" placeholder="期望寻求目标">{{Request::old('expectation')}}</textarea>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <h3>照片:</h3>

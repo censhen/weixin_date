@@ -52,16 +52,16 @@ class FrontendController extends Controller {
             'age' => 'required|numeric|between:18,50',
             'city' => 'required|between:1,10',
             'height' => 'numeric',
-//            'interest' => 'required|between:0,100',
-//            'self_intro' => 'required|between:10,200',
-//            'expectation' => 'required|between:10,200',
-//            'photo1'=> 'required|image',
+            'interest' => 'between:0,100',
+            'self_intro' => 'required|between:10,200',
+            'expectation' => 'required|between:10,200',
+            'photo1'=> 'required|image',
 //            'photo2'=> 'image',
         ]);
 
         if ($v->fails()) {
 //            print_r(Request::all());
-            return redirect()->back()->withErrors($v->errors());
+            return redirect()->back()->withInput()->withErrors($v->errors());
         } else {
             Log::info('new user profile: '. Request::input('name'));
 
