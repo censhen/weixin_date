@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Log;
 use App\User;
 use Intervention\Image\Facades\Image;
+use Wechat;
 
 class FrontendController extends Controller {
 
@@ -111,5 +112,16 @@ class FrontendController extends Controller {
         }
 
         $img->save('photos/formal/'.$file_name);
+
+        // upload to wechat server
+//        $media = Wechat::media();
+//        $imageId = $media->image("photos/formal/".$file_name); // 上传并返回媒体ID
+    }
+
+    public function getUsersByGender()
+    {
+        $users = User::where('gender','=', Request::input('gender'))->get();
+
+        return view('frontend.user_list', ['users'=>$users]);
     }
 }

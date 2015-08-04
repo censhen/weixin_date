@@ -61,10 +61,10 @@ return array(
      */
     'edit_fields' => array(
         'reviews' => array(
-            'title' => '评价',
+            'title' => '红娘评价',
             'type' => 'textarea',
 //            'limit' => 300, //optional, defaults to no limit
-//            'height' => 130, //optional, defaults to 100
+            'height' => 200, //optional, defaults to 100
         ),
     ),
 );

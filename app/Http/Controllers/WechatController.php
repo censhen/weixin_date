@@ -39,20 +39,14 @@ class WechatController extends Controller {
 
                 $news = Message::make('news')->items(function(){
                     return array(
-                        Message::make('news_item')->title('查看男生'),
-                        Message::make('news_item')->title('测试标题2')->description('好不好？'),
-                        Message::make('news_item')->title('测试标题3')->description('好不好说句话？')->url('http://baidu.com'),
-                        Message::make('news_item')->title('测试标题4')->url('http://baidu.com/abc.php')->picUrl('http://www.baidu.com/demo.jpg'),
+                        Message::make('news_item')->title('男生列表')->description('查看所有男生列表')->url('http://123.56.106.172/users?gender=1'),
                     );
                 });
                 return $news;
             } elseif($event['EventKey'] == self::EVENT_SHOW_GIRLS) {
                 $news = Message::make('news')->items(function(){
                     return array(
-                        Message::make('news_item')->title('查看女生'),
-                        Message::make('news_item')->title('测试标题2')->description('好不好？'),
-                        Message::make('news_item')->title('测试标题3')->description('好不好说句话？')->url('http://baidu.com'),
-                        Message::make('news_item')->title('测试标题4')->url('http://baidu.com/abc.php')->picUrl('http://www.baidu.com/demo.jpg'),
+                        Message::make('news_item')->title('女生列表')->description('查看所有女生列表')->url('http://123.56.106.172/users?gender=2'),
                     );
                 });
                 return $news;

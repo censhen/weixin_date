@@ -22,6 +22,7 @@ Route::any('/wechat/set_menu', 'WechatController@setMenu');
 // frontend
 Route::get('/apply', 'FrontendController@getApply');
 Route::post('/apply', 'FrontendController@postApply');
+Route::get('/users', 'FrontendController@getUsersByGender');
 
 // backend
 Route::get('/backend/show', 'BackendController@getShowAll');
