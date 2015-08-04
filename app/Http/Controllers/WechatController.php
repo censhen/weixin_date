@@ -16,6 +16,9 @@ use Overtrue\Wechat\AccessToken;
 class WechatController extends Controller {
     const EVENT_SHOW_BOYS = 'SHOW_BOYS';
     const EVENT_SHOW_GIRLS = 'SHOW_GIRLS';
+    const EVENT_RELATION_AD = 'RELATION_ADVISOR';
+    const EVENT_ACTIVITY_INFO = 'ACTIVITY_INFO';
+
 
     /**
      * 处理微信的请求消息
@@ -50,6 +53,10 @@ class WechatController extends Controller {
                     );
                 });
                 return $news;
+            } elseif($event['EventKey'] == self::EVENT_RELATION_AD) {
+                return Message::make('text')->content('情感顾问功能正在制作中，敬请期待！');
+            } elseif($event['EventKey'] == self::EVENT_ACTIVITY_INFO) {
+                return Message::make('text')->content('活动介绍功能正在制作中，敬请期待！');
             }
         });
 
@@ -79,6 +86,23 @@ class WechatController extends Controller {
                         "name"=>"我要女生",
                         "type"=>"click",
                         "key"=>"SHOW_GIRLS",
+                    ],
+                ]
+            ],
+            [
+                "name" => "更多服务",
+                "type" => null,
+                "key" => null,
+                "buttons" => [
+                    [
+                        "name"=>"情感顾问",
+                        "type"=>"click",
+                        "key"=>"RELATION_ADVISOR",
+                    ],
+                    [
+                        "name"=>"活动介绍",
+                        "type"=>"click",
+                        "key"=>"ACTIVITY_INFO",
                     ],
                 ]
             ],
