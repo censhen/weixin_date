@@ -86,12 +86,12 @@
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <textarea name="self_intro" class="form-control" rows="5" placeholder="自我介绍">{{Request::old('self_intro')}}</textarea>
+                        <textarea name="self_intro" class="form-control" rows="5" placeholder="自我介绍。写的越详细越好...">{{Request::old('self_intro')}}</textarea>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <textarea name="expectation" class="form-control" rows="5" placeholder="期望寻求目标">{{Request::old('expectation')}}</textarea>
+                        <textarea name="expectation" class="form-control" rows="5" placeholder="期望寻求目标。写的越详细越好...">{{Request::old('expectation')}}</textarea>
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <h3>照片:</h3>
