@@ -60,9 +60,11 @@ return array(
      * The editable fields
      */
     'edit_fields' => array(
-        'name' => array(
-            'title' => '姓名',
-            'type' => 'text',
+        'reviews' => array(
+            'title' => '评价',
+            'type' => 'textarea',
+//            'limit' => 300, //optional, defaults to no limit
+//            'height' => 130, //optional, defaults to 100
         ),
     ),
 );
