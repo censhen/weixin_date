@@ -64,6 +64,11 @@
                 </div><!-- /form-group -->
                 <div class="form-group">
                     <div class="col-lg-10">
+                        <input name="job" class="form-control" type="text" value="{{Request::old('job')}}"  placeholder="职业">
+                    </div><!-- /.col -->
+                </div><!-- /form-group -->
+                <div class="form-group">
+                    <div class="col-lg-10">
                         <input name="height" class="form-control" type="text" value="{{Request::old('height')}}"  placeholder="身高 (单位:cm)">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
@@ -76,7 +81,7 @@
                 <hr>
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <input name="interest" class="form-control" type="text" value="{{Request::old('interest')}}"  placeholder="爱好、特长">
+                        <input name="interest" class="form-control" type="text" value="{{Request::old('interest')}}"  placeholder="爱好">
                     </div><!-- /.col -->
                 </div><!-- /form-group -->
                 <div class="form-group">
