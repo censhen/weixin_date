@@ -106,6 +106,7 @@ return array(
         'gender' => '姓名',
         'wechat_account' => '微信号',
         'age' => '年龄',
+        'job' => '职业',
         'city' => '居住地',
         'height' => '身高',
         'interest' => '兴趣爱好',
