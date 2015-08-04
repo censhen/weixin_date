@@ -96,9 +96,6 @@
 <!-- Cookie -->
 <script src='/js/jquery.cookie.min.js'></script>
 
-<!-- Flot -->
-<script src='js/jquery.flot.min.js'></script>
-
 <!-- Endless -->
 <script src="/js/endless/endless.js"></script>
 @yield('bottom_js')

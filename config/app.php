@@ -145,6 +145,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         'Overtrue\LaravelWechat\ServiceProvider',
         'Frozennode\Administrator\AdministratorServiceProvider',
+        'Intervention\Image\ImageServiceProvider'
     ],
 
     /*
@@ -194,6 +195,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Wechat' => 'Overtrue\LaravelWechat\Facade',
+        'Image' => 'Intervention\Image\Facades\Image'
     ],
 
 ];

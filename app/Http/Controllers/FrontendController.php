@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 use Log;
 use App\User;
+use Intervention\Image\Facades\Image;
 
 class FrontendController extends Controller {
 
@@ -56,11 +57,10 @@ class FrontendController extends Controller {
             'self_intro' => 'required|between:10,200',
             'expectation' => 'required|between:10,200',
             'photo1'=> 'required|image',
-//            'photo2'=> 'image',
+            'photo2'=> 'image',
         ]);
 
         if ($v->fails()) {
-//            print_r(Request::all());
             return redirect()->back()->withInput()->withErrors($v->errors());
         } else {
             Log::info('new user profile: '. Request::input('name'));
@@ -78,18 +78,38 @@ class FrontendController extends Controller {
             $user->expectation = Request::input('expectation');
             $user->type = User::TYPE_MEMBER;
 
+            // handle images
             $file_extension = Request::file('photo1')->getClientOriginalExtension();
-            Request::file('photo1')->move('photos', $user->name."_01.".$file_extension);
-            $user->photo1 = "photos/".$user->name."_01.".$file_extension;
+            $file_name = $user->name."_01.".$file_extension;
+            Request::file('photo1')->move('photos', $file_name);
+            $user->photo1 = "photos/".$file_name;
+            // create instance
+            $this->image_process($file_name);
 
             if (Request::hasFile('photo2')) {
                 $file_extension = Request::file('photo2')->getClientOriginalExtension();
-                Request::file('photo2')->move('photos', $user->name."_02.".$file_extension);
-                $user->photo2 = "photos/".$user->name."_02.".$file_extension;
+                $file_name = $user->name."_02.".$file_extension;
+                Request::file('photo2')->move('photos', $file_name);
+                $user->photo2 = "photos/".$file_name;
+                $this->image_process($file_name);
             }
             $user->save();
 
             return view('frontend.confirmed');
         }
+    }
+
+    protected function image_process($file_name)
+    {
+        // create instance
+        $img = Image::make('photos/'.$file_name);
+        // resize the image to a height of 200 and constrain aspect ratio (auto width)
+        if($img->height() > 500) {
+            $img->resize(null, 500, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+        }
+
+        $img->save('photos/formal/'.$file_name);
     }
 }

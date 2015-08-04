@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "overtrue/laravel-wechat": "2.0.*",
-        "frozennode/administrator": "5.*"
+        "frozennode/administrator": "5.*",
+        "intervention/image": "2.3.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
