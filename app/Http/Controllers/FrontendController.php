@@ -53,6 +53,7 @@ class FrontendController extends Controller {
             'wechat_account' => 'required|between:1,20',
             'age' => 'required|numeric|between:18,50',
             'city' => 'required|between:1,10',
+            'job' => 'required|between:1,20',
             'height' => 'numeric',
             'interest' => 'between:0,100',
             'self_intro' => 'required|between:10,200',
@@ -73,7 +74,7 @@ class FrontendController extends Controller {
             $user->age = Request::input('age');
             $user->height = Request::input('height');
             $user->city = Request::input('city');
-
+            $user->job = Request::input('job');
             $user->interest = Request::input('interest');
             $user->self_intro = Request::input('self_intro');
             $user->expectation = Request::input('expectation');
