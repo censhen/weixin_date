@@ -22,7 +22,7 @@
                 <p>自我介绍: {{nl2br($user->self_intro)}}</p>
                 <p>期望目标: {{nl2br($user->expectation)}}</p>
                 <div class="alert alert-warning">
-                    <strong>红娘点评:</strong>{{nl2br($user->reviews)}}
+                    <strong>红娘点评:</strong>{!!nl2br($user->reviews)!!}
                 </div>
             </div><!-- /.col -->
         </div>
