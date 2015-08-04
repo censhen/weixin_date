@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="container">
-    <div class="bg-white">
+    <div class="bg-white content-padding">
         @foreach($users as $user)
         <div class="row">
             <div class="col-xs-12 col-md-6 text-center">
@@ -13,14 +13,15 @@
                 <div class="seperator"></div>
             </div><!-- /.col -->
             <div class="col-xs-12 col-md-6">
-                <strong class="font-14">{{$user->name}}</strong>
-                <small class="block text-muted">
-                    年龄:{{$user->age}}
-                </small>
+                <h3>姓名: {{$user->name}}</h3>
+                <p class="block text-muted">
+                    年龄: {{$user->age}}
+                </p>
                 <p>居住地: {{$user->city}}</p>
                 <p>兴趣爱好: {{$user->interest}}</p>
-                <p>自我介绍: {{$user->self_intro}}</p>
-                <p>期望目标: {{$user->expectation}}</p>
+                <p>自我介绍: {{nl2br($user->self_intro)}}</p>
+                <p>期望目标: {{nl2br($user->expectation)}}</p>
+                <p>红娘点评: {{nl2br($user->reviews)}}</p>
             </div><!-- /.col -->
         </div>
         @endforeach

@@ -55,13 +55,16 @@ return array(
         'expectation' => array(
             'title' => '期望',
         ),
+        'reviews' => array(
+            'title' => '红娘评论',
+        ),
     ),
     /**
      * The editable fields
      */
     'edit_fields' => array(
         'reviews' => array(
-            'title' => '红娘评价',
+            'title' => '红娘评论',
             'type' => 'textarea',
 //            'limit' => 300, //optional, defaults to no limit
             'height' => 200, //optional, defaults to 100
