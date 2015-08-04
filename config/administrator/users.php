@@ -31,9 +31,9 @@ return array(
                     return $value;
             },
         ),
-        'created_at' => array(
-            'title' => '创建时间',
-        ),
+//        'created_at' => array(
+//            'title' => '创建时间',
+//        ),
         'wechat_account' => array(
             'title' => '微信账号',
         ),

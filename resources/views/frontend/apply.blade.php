@@ -9,7 +9,7 @@
                 <h3>基本信息:</h3>
                 @if($errors->has())
                 @foreach ($errors->all() as $error)
-                <div class="panel-danger">{{ $error }}</div>
+                <div class="text-danger">{{ $error }}</div>
                 @endforeach
                 @endif
                 <hr>
