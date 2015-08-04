@@ -16,6 +16,11 @@ return array(
             'output' => '<img src="/(:value)" height="100" />',
             'sortable' => false,
         ),
+        'photo2' => array(
+            'title' => '照片2',
+            'output' => '<img src="/(:value)" height="100" />',
+            'sortable' => false,
+        ),
         'name' => array(
             'title' => '姓名',
         ),
