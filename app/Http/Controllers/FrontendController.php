@@ -82,7 +82,7 @@ class FrontendController extends Controller {
             $file_extension = Request::file('photo1')->getClientOriginalExtension();
             $file_name = $user->name."_01.".$file_extension;
             Request::file('photo1')->move('photos', $file_name);
-            $user->photo1 = "photos/".$file_name;
+            $user->photo1 = "photos/formal/".$file_name;
             // create instance
             $this->image_process($file_name);
 
@@ -90,7 +90,7 @@ class FrontendController extends Controller {
                 $file_extension = Request::file('photo2')->getClientOriginalExtension();
                 $file_name = $user->name."_02.".$file_extension;
                 Request::file('photo2')->move('photos', $file_name);
-                $user->photo2 = "photos/".$file_name;
+                $user->photo2 = "photos/formal/".$file_name;
                 $this->image_process($file_name);
             }
             $user->save();
