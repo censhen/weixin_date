@@ -120,7 +120,7 @@ class FrontendController extends Controller {
 
     public function getUsersByGender()
     {
-        $users = User::where('gender','=', Request::input('gender'))->get();
+        $users = User::where('gender','=', Request::input('gender'))->where('type','=',User::TYPE_MEMBER)->get();
 
         return view('frontend.user_list', ['users'=>$users]);
     }
