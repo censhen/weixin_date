@@ -13,7 +13,7 @@ return array(
         'id',
         'photo1' => array(
             'title' => '照片1',
-            'output' => '<img src="/public/(:value)" height="100" />',
+            'output' => '<img src="/(:value)" height="100" />',
             'sortable' => false,
         ),
         'name' => array(
