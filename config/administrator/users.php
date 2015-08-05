@@ -39,9 +39,9 @@ return array(
 //        'created_at' => array(
 //            'title' => '创建时间',
 //        ),
-        'wechat_account' => array(
-            'title' => '微信账号',
-        ),
+//        'wechat_account' => array(
+//            'title' => '微信账号',
+//        ),
         'age' => array(
             'title' => '年龄',
         ),
@@ -50,9 +50,6 @@ return array(
         ),
         'height' => array(
             'title' => '身高',
-        ),
-        'interest' => array(
-            'title' => '兴趣爱好',
         ),
         'self_intro' => array(
             'title' => '自我介绍',
@@ -68,6 +65,18 @@ return array(
      * The editable fields
      */
     'edit_fields' => array(
+        'name' => array(
+            'title' => '姓名',
+            'editable' => false,
+        ),
+        'wechat_account' => array(
+            'title' => '微信账号',
+            'editable' => false,
+        ),
+        'interest' => array(
+            'title' => '兴趣爱好',
+            'editable' => false,
+        ),
         'reviews' => array(
             'title' => '红娘评论',
             'type' => 'textarea',
@@ -75,4 +84,8 @@ return array(
             'height' => 200, //optional, defaults to 100
         ),
     ),
+    'query_filter'=> function($query)
+    {
+        $query->where('type','=', \App\User::TYPE_MEMBER);
+    },
 );

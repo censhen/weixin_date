@@ -119,7 +119,7 @@ return array(
 	 *
 	 * @type NULL|int
 	 */
-	'global_rows_per_page' => 20,
+	'global_rows_per_page' => 10,
 
 	/**
 	 * An array of available locale strings. This determines which locales are available in the languages menu at the top right of the Administrator
