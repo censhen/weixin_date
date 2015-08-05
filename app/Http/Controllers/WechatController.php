@@ -54,7 +54,12 @@ class WechatController extends Controller {
                 });
                 return $news;
             } elseif($event['EventKey'] == self::EVENT_RELATION_AD) {
-                return Message::make('text')->content('情感顾问功能正在制作中，敬请期待！');
+                return Message::make('text')->content('也许疲惫工作了一天的你，怎么都不明白，为什么就没有那么一个肩膀来供你依靠；
+                也许努力经营着自己的你，总会有些牢骚，为什么就没有那么一双眼睛能将你欣赏；
+                也许细心寻觅过姻缘的你，偶尔也会遐想，为什么就没有那么一方臂弯来把你拥抱？
+                我们所求的其实不多，只是有些过错、有些错过，让原本的命中注定，变得若即若离，渴望而不可求。
+                若您有话想说，无须犹豫，欢迎随时诉说情感路上的喜悦哀愁。
+                美瑾红娘，只为你，执子之手、相濡以沫！！！');
             } elseif($event['EventKey'] == self::EVENT_ACTIVITY_INFO) {
                 return Message::make('text')->content('活动介绍功能正在制作中，敬请期待！');
             }
