@@ -79,13 +79,15 @@ class WechatController extends Controller {
                 "buttons" => [
                     [
                         "name"=>"我要男生",
-                        "type"=>"click",
-                        "key"=>"SHOW_BOYS",
+                        "type"=>"view",
+                        "key"=>"http://123.56.106.172/users?gender=1",
+//                        "key"=>"SHOW_BOYS",
                     ],
                     [
                         "name"=>"我要女生",
-                        "type"=>"click",
-                        "key"=>"SHOW_GIRLS",
+                        "type"=>"view",
+                        "key"=>"http://123.56.106.172/users?gender=2",
+//                        "key"=>"SHOW_GIRLS",
                     ],
                 ]
             ],

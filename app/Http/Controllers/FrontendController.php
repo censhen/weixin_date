@@ -124,6 +124,7 @@ class FrontendController extends Controller {
         $users = User::where('gender','=', Request::input('gender'))
             ->where('type','=',User::TYPE_MEMBER)
             ->whereNotNull('reviews')
+            ->orderBy('id', 'desc')
             ->get();
 
         return view('frontend.user_list', ['users'=>$users]);
