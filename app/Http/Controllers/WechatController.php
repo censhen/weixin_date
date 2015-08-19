@@ -10,7 +10,7 @@ use Overtrue\Wechat\MenuItem;
 use Overtrue\Wechat\Server;
 use Overtrue\Wechat\Message;
 
-use Log, Request;
+use Log, Request, Config;
 use Overtrue\Wechat\AccessToken;
 
 class WechatController extends Controller {
@@ -42,14 +42,14 @@ class WechatController extends Controller {
 
                 $news = Message::make('news')->items(function(){
                     return array(
-                        Message::make('news_item')->title('男生列表')->description('查看所有男生列表')->url('http://123.56.106.172/users?gender=1'),
+                        Message::make('news_item')->title('男生列表')->description('查看所有男生列表')->url(Config::get('wechat.domain').'/users?gender=1'),
                     );
                 });
                 return $news;
             } elseif($event['EventKey'] == self::EVENT_SHOW_GIRLS) {
                 $news = Message::make('news')->items(function(){
                     return array(
-                        Message::make('news_item')->title('女生列表')->description('查看所有女生列表')->url('http://123.56.106.172/users?gender=2'),
+                        Message::make('news_item')->title('女生列表')->description('查看所有女生列表')->url(Config::get('wechat.domain').'/users?gender=2'),
                     );
                 });
                 return $news;
@@ -75,7 +75,7 @@ class WechatController extends Controller {
             [
                 "name"=>"我要加入",
                 "type"=>"view",
-                "key"=>"http://123.56.106.172/apply",
+                "key"=>Config::get('wechat.domain')."/apply",
             ],
             [
                 "name" => "查看会员",
@@ -85,13 +85,13 @@ class WechatController extends Controller {
                     [
                         "name"=>"我要男生",
                         "type"=>"view",
-                        "key"=>"http://123.56.106.172/users?gender=1",
+                        "key"=>Config::get('wechat.domain')."/users?gender=1",
 //                        "key"=>"SHOW_BOYS",
                     ],
                     [
                         "name"=>"我要女生",
                         "type"=>"view",
-                        "key"=>"http://123.56.106.172/users?gender=2",
+                        "key"=>Config::get('wechat.domain')."/users?gender=2",
 //                        "key"=>"SHOW_GIRLS",
                     ],
                 ]
