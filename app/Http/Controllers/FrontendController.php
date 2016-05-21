@@ -86,7 +86,7 @@ class FrontendController extends Controller {
 //            Request::file('photo1')->move('photos', $file_name);
             $user->photo1 = "photos/formal/".$file_name;
             // create instance
-            $this->image_process($file_name);
+//            $this->image_process($file_name);
 
 //            if (Request::hasFile('photo2')) {
 //                $file_extension = Request::file('photo2')->getClientOriginalExtension();
