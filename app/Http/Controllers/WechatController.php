@@ -127,12 +127,12 @@ class WechatController extends Controller {
             [
                 "name"=>"我要加入",
                 "type"=>"view",
-                "key"=>Config::get('wechat.domain')."/apply",
+                "url"=>Config::get('wechat.domain')."/apply",
             ],
             [
                 "name"=>"匹配会员",
                 "type"=>"view",
-                "key"=>Config::get('wechat.domain')."/users",
+                "url"=>Config::get('wechat.domain')."/users",
             ],
             [
                 "name" => "更多服务",
