@@ -23,14 +23,22 @@ class WechatController extends Controller {
     {
         Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
 
-        $wechat->server->setMessageHandler(function($message){
-            return "欢迎关注 overtrue！";
-        });
-
         $wechat->server->setMessageHandler(function ($message) {
             switch ($message->MsgType) {
                 case 'event':
-                    # 事件消息...
+                    # 事件消息..
+                    switch ($message->Event) {
+                        case 'subscribe':
+                            return "欢迎关注，牵寻为您服务。";
+                            break;
+                        case 'click':
+                            return 'click';
+                            break;
+                        default:
+                            # code...
+                            break;
+                    }
+
                     break;
                 case 'text':
                     return "zza";
@@ -113,7 +121,7 @@ class WechatController extends Controller {
 //        return $res;
 //    }
 
-    public function setMenu(Menu $wechat_menu)
+    public function setMenu(Application $wechat)
     {
         $raw_menu = [
             [
@@ -122,23 +130,9 @@ class WechatController extends Controller {
                 "key"=>Config::get('wechat.domain')."/apply",
             ],
             [
-                "name" => "查看会员",
-                "type" => null,
-                "key" => null,
-                "buttons" => [
-                    [
-                        "name"=>"我要男生",
-                        "type"=>"view",
-                        "key"=>Config::get('wechat.domain')."/users?gender=1",
-//                        "key"=>"SHOW_BOYS",
-                    ],
-                    [
-                        "name"=>"我要女生",
-                        "type"=>"view",
-                        "key"=>Config::get('wechat.domain')."/users?gender=2",
-//                        "key"=>"SHOW_GIRLS",
-                    ],
-                ]
+                "name"=>"匹配会员",
+                "type"=>"view",
+                "key"=>Config::get('wechat.domain')."/users",
             ],
             [
                 "name" => "更多服务",
@@ -159,25 +153,7 @@ class WechatController extends Controller {
             ],
         ];
 
-        // 构建你的菜单
-        foreach ($raw_menu as $menu) {
-            // 创建一个菜单项
-            $item = new MenuItem($menu['name'], $menu['type'], $menu['key']);
-
-            // 子菜单
-            if (!empty($menu['buttons'])) {
-                $buttons = [];
-                foreach ($menu['buttons'] as $button) {
-                    $buttons[] = new MenuItem($button['name'], $button['type'], $button['key']);
-                }
-
-                $item->buttons($buttons);
-            }
-
-            $target[] = $item;
-        }
-
-        $wechat_menu->set($target);
+        $wechat->menu->add($raw_menu);
 
         return "自定义菜单成功";
     }
