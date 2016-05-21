@@ -121,6 +121,11 @@ class WechatController extends Controller {
 //        return $res;
 //    }
 
+    public function getMenu(Application $wechat)
+    {
+        return json_encode($wechat->menu->all());
+    }
+
     public function setMenu(Application $wechat)
     {
         $raw_menu = [
