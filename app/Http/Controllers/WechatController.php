@@ -136,9 +136,7 @@ class WechatController extends Controller {
             ],
             [
                 "name" => "更多服务",
-                "type" => null,
-                "key" => null,
-                "buttons" => [
+                "sub_button" => [
                     [
                         "name"=>"情感顾问",
                         "type"=>"click",
