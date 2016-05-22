@@ -79,8 +79,10 @@
 <!--                </div>-->
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <select name="{{q1.title}}">
-                            <option value=""></option>
+                        <select name="{{$q1['title']}}">
+                            @foreach ($q1['options'] as $val=>$label)
+                            <option value="{{$val}}">{{$label}}</option>
+                            @endforeach
                         </select>
                     </div><!-- /.col -->
                 </div>
