@@ -81,7 +81,11 @@
                     <div class="col-lg-10">
                         {{$q1['title']}}<br>
                         @foreach ($q1['options'] as $val=>$label)
-                        <input class="form-control" type="checkbox" name="{{$val}}" />{{$label}}
+                        <label class="label-checkbox inline">
+                            <input type="checkbox" name="{{$val}}">
+                            <span class="custom-checkbox"></span>
+                            {{$label}}
+                        </label>
                         @endforeach
                     </div><!-- /.col -->
                 </div>
