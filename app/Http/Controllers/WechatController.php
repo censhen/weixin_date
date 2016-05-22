@@ -184,7 +184,7 @@ class WechatController extends Controller {
             ],
         ];
 
-        $wechat->menu->add($buttons);
+        $wechat->menu->add($raw_menu);
 
         return "自定义菜单成功";
     }
