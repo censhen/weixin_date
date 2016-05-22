@@ -79,11 +79,10 @@
 <!--                </div>-->
                 <div class="form-group">
                     <div class="col-lg-10">
-                        <select name="{{$q1['title']}}">
-                            @foreach ($q1['options'] as $val=>$label)
-                            <option value="{{$val}}">{{$label}}</option>
-                            @endforeach
-                        </select>
+                        {{$q1['title']}}<br>
+                        @foreach ($q1['options'] as $val=>$label)
+                        <input type="checkbox" name="{{$val}}" />{{$label}}
+                        @endforeach
                     </div><!-- /.col -->
                 </div>
                 <h3>额外信息:</h3>

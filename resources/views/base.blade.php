@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>美瑾红娘</title>
+    <title>牵寻</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -37,7 +37,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand"><span class="text-danger">美瑾 </span> 红娘</a>
+            <a href="/" class="navbar-brand"><span class="text-danger">牵 </span> 寻</a>
         </div>
     </div>
 </header>
@@ -52,8 +52,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 padding-md">
-                <p class="font-lg">美瑾红娘</p>
-                <p><small>@copyright 2015</small></p>
+                <p class="font-lg">牵寻科技</p>
+                <p><small>@copyright 2016</small></p>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div>
