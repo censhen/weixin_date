@@ -77,10 +77,35 @@
 <!--                        <input name="weight" class="form-control" type="text" placeholder="体重 (单位:kg)">-->
 <!--                    </div>-->
 <!--                </div>-->
+                <h3>答题信息:</h3>
                 <div class="form-group">
                     <div class="col-lg-10">
                         {{$q1['title']}}<br>
                         @foreach ($q1['options'] as $val=>$label)
+                        <label class="label-checkbox inline">
+                            <input type="checkbox" name="{{$val}}">
+                            <span class="custom-checkbox"></span>
+                            {{$label}}
+                        </label>
+                        @endforeach
+                    </div><!-- /.col -->
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10">
+                        {{$q2['title']}}<br>
+                        @foreach ($q2['options'] as $val=>$label)
+                        <label class="label-checkbox inline">
+                            <input type="checkbox" name="{{$val}}">
+                            <span class="custom-checkbox"></span>
+                            {{$label}}
+                        </label>
+                        @endforeach
+                    </div><!-- /.col -->
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10">
+                        {{$q3['title']}}<br>
+                        @foreach ($q3['options'] as $val=>$label)
                         <label class="label-checkbox inline">
                             <input type="checkbox" name="{{$val}}">
                             <span class="custom-checkbox"></span>
