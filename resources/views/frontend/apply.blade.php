@@ -83,7 +83,7 @@
                         {{$q1['title']}}<br>
                         @foreach ($q1['options'] as $val=>$label)
                         <label class="label-checkbox inline">
-                            <input type="checkbox" name="{{$val}}">
+                            <input type="checkbox" style="opacity: 100;position: relative" name="{{$val}}">
                             <span class=""></span>
                             {{$label}}
                         </label>
@@ -95,7 +95,7 @@
                         {{$q2['title']}}<br>
                         @foreach ($q2['options'] as $val=>$label)
                         <label class="label-checkbox inline">
-                            <input type="checkbox" name="{{$val}}">
+                            <input type="checkbox" style="opacity: 100;position: relative" name="{{$val}}">
                             <span class=""></span>
                             {{$label}}
                         </label>
@@ -107,7 +107,7 @@
                         {{$q3['title']}}<br>
                         @foreach ($q3['options'] as $val=>$label)
                         <label class="label-checkbox inline">
-                            <input type="checkbox" name="{{$val}}">
+                            <input type="checkbox" style="opacity: 100;position: relative" name="{{$val}}">
                             <span class=""></span>
                             {{$label}}
                         </label>
