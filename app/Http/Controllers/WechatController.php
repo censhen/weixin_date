@@ -28,7 +28,7 @@ class WechatController extends Controller {
             switch ($message->MsgType) {
                 case 'event':
                     # 事件消息..
-                    $this->eventHandler($message);
+                    return $this->eventHandler($message);
                     break;
                 case 'text':
                     return "如果有定制需求，请联系我们。";
