@@ -121,6 +121,8 @@ class WechatController extends Controller {
                 return "欢迎关注，牵寻为您服务。";
                 break;
             case 'CLICK':
+                Log::info("[$message->EventKey]: event recieved.");
+
                 if($message->EventKey == 'RELATION_ADVISOR') {
                     return '情感顾问，敬请期待。';
                 } else {
