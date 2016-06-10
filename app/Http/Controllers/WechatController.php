@@ -126,7 +126,7 @@ class WechatController extends Controller {
                 if($message->EventKey == 'RELATION_ADVISOR') {
                     return '情感顾问，敬请期待。';
                 } else {
-                    return '活动制作中。';
+                    return '活动介绍功能正在制作中，敬请期待！';
                 }
                 break;
             default:

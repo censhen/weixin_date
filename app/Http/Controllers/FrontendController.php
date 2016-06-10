@@ -56,9 +56,9 @@ class FrontendController extends Controller {
             'city' => 'required|between:1,10',
             'job' => 'required|between:1,20',
             'height' => 'numeric',
-            'interest' => 'between:0,100',
+//            'interest' => 'between:0,100',
             'self_intro' => 'required|between:10,200',
-            'expectation' => 'required|between:10,200',
+//            'expectation' => 'required|between:10,200',
             'photo1'=> 'required|image',
             'photo2'=> 'image',
         ]);
