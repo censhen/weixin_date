@@ -28,7 +28,7 @@ class WechatController extends Controller {
             switch ($message->MsgType) {
                 case 'event':
                     # 事件消息..
-                    $this->eventHandler($message->Event);
+                    $this->eventHandler($message);
                     break;
                 case 'text':
                     return "如果有定制需求，请联系我们。";
@@ -111,16 +111,21 @@ class WechatController extends Controller {
 //        return $res;
 //    }
 
-    protected function eventHandler($event)
+    protected function eventHandler($message)
     {
+        $event = $message->Event;
         Log::info("[$event]: event recieved.");
 
         switch ($event) {
             case 'subscribe':
                 return "欢迎关注，牵寻为您服务。";
                 break;
-            case 'click':
-                return '敬请期待。';
+            case 'CLICK':
+                if($event->EventKey == 'RELATION_ADVISOR') {
+                    return '情感顾问，敬请期待。';
+                } else {
+                    return '活动制作中。';
+                }
                 break;
             default:
                 # code...
