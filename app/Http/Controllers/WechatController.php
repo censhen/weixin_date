@@ -7,6 +7,7 @@
  */
 use Log, Request, Config;
 use EasyWeChat\Foundation\Application;
+use EasyWeChat;
 
 class WechatController extends Controller {
     const EVENT_SHOW_BOYS = 'SHOW_BOYS';
@@ -118,8 +119,14 @@ class WechatController extends Controller {
 
         switch ($event) {
             case 'subscribe':
-                Log::info("[openid]: $message->FromUserName subscribed.");
-                return "欢迎关注，牵寻为您服务。";
+                $openid = $message->FromUserName;
+                Log::info("[subscribed]: openid: $openid subscribed.");
+                $user_service = EasyWeChat::user();
+                $user = $user_service->get($openid);
+                Log::info("[subscribed]: user info: ".json_encode($user));
+
+
+                return "$user->nickname 欢迎关注，牵寻为您服务。";
                 break;
             case 'CLICK':
                 Log::info("[$message->EventKey]: event recieved.");
