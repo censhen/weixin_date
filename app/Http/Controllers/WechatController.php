@@ -118,6 +118,7 @@ class WechatController extends Controller {
 
         switch ($event) {
             case 'subscribe':
+                Log::info("[openid]: $message->FromUserName subscribed.");
                 return "欢迎关注，牵寻为您服务。";
                 break;
             case 'CLICK':

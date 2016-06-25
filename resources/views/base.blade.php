@@ -37,7 +37,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand"><span class="text-danger">牵 </span> 寻</a>
+            <a href="/" class="navbar-brand"><span class="text-danger">牵寻 </span> </a>
         </div>
     </div>
 </header>
