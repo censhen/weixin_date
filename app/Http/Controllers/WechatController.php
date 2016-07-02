@@ -146,13 +146,16 @@ class WechatController extends Controller {
     public function textHandler($message)
     {
         $content = $message->Content;
+        $command = substr($content, 0,2);
+
+
         Log::info("[text]: {$content}");
-        if($content == 'a') {
-            return '请先输入您的基本信息，回复消息格式:  s1 名称，居住地，年龄，微信号。';
-        } elseif($content == 'b') {
-            return '请回答以下三个问题，回复消息格式:s2 a,b,c;a,d,e;c,b,d';
+        if($content == '我要参加') {
+            return '您好，请先输入您的基本信息，回复消息格式:  s1 姓名/昵称，居住地，年龄，微信号。';
+        } elseif($command == 's1') {
+            return "请回答以下三个问题，1.你是什么样的人。2.你想找什么样的人。回复消息格式:s2 a,b,c;a,d,e;c,b,d";
         } elseif($content = 'c') {
-            return 'http://123.57.27.16/apply';
+            return '根据您的信息，为您个性化推荐对象:http://123.57.27.16/users?my='.urlencode("3,2,1");
         }
     }
 
