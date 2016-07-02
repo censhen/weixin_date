@@ -8,6 +8,7 @@
 use Log, Request, Config;
 use EasyWeChat\Foundation\Application;
 use EasyWeChat;
+//use EasyWeChat\Message\;
 
 class WechatController extends Controller {
     const EVENT_SHOW_BOYS = 'SHOW_BOYS';
@@ -32,7 +33,7 @@ class WechatController extends Controller {
                     return $this->eventHandler($message);
                     break;
                 case 'text':
-                    return "如果有定制需求，请联系我们。";
+                    return $this->textHandler($message);
                     break;
                 case 'image':
                     # 图片消息...
@@ -120,13 +121,12 @@ class WechatController extends Controller {
         switch ($event) {
             case 'subscribe':
                 $openid = $message->FromUserName;
-                Log::info("[subscribed]: openid: $openid subscribed.");
+                Log::info("[subscribe]: openid: $openid subscribed.");
                 $user_service = EasyWeChat::user();
                 $user = $user_service->get($openid);
-                Log::info("[subscribed]: user info: ".json_encode($user));
+                Log::info("[subscribe]: user info: ".json_encode($user));
 
-
-                return "$user->nickname 欢迎关注，牵寻为您服务。";
+                return "$user->nickname, 欢迎关注牵寻, 很高兴为您服务。";
                 break;
             case 'CLICK':
                 Log::info("[$message->EventKey]: event recieved.");
@@ -140,6 +140,19 @@ class WechatController extends Controller {
             default:
                 # code...
                 break;
+        }
+    }
+
+    public function textHandler($message)
+    {
+        $content = $message->Content;
+        Log::info("[text]: {$content}");
+        if($content == 'a') {
+            return '请先输入您的基本信息，回复消息格式:  s1 名称，居住地，年龄，微信号。';
+        } elseif($content == 'b') {
+            return '请回答以下三个问题，回复消息格式:s2 a,b,c;a,d,e;c,b,d';
+        } elseif($content = 'c') {
+            return 'http://123.57.27.16/apply';
         }
     }
 
