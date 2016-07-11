@@ -147,14 +147,41 @@ class WechatController extends Controller {
     {
         $content = $message->Content;
         $command = substr($content, 0,2);
-
+        $openid = $message->FromUserName;
 
         Log::info("[text]: {$content}");
         if($content == '我要参加') {
-            return '您好，请先输入您的基本信息，回复消息格式:  s1 姓名/昵称，居住地，年龄，微信号。';
+            return '您好，请先输入您的基本信息，回复消息格式:  s1 姓名/昵称，性别，年龄，居住地，微信号。';
         } elseif($command == 's1') {
+
+            $user = User::where('openid','=', $openid)->get();
+            if(!$user) {
+                $user = new User();
+            }
+
+            $user->name = Request::input('name');
+            $user->gender = Request::input('gender');
+            $user->age = Request::input('age');
+            $user->city = Request::input('city');
+            $user->wechat_account = Request::input('wechat_account');
+            $user->type = User::TYPE_MEMBER;
+            $user->save();
+
             return "请回答以下三个问题，1.你是什么样的人。2.你想找什么样的人。回复消息格式:s2 a,b,c;a,d,e;c,b,d";
-        } elseif($content = 'c') {
+        } elseif($content = 's2') {
+            $user = User::where('openid','=', $openid)->get();
+            if(!$user) {
+                return '请先输入您的个人信息';
+            }
+
+            $user->name = Request::input('name');
+            $user->gender = Request::input('gender');
+            $user->age = Request::input('age');
+            $user->city = Request::input('city');
+            $user->wechat_account = Request::input('wechat_account');
+            $user->type = User::TYPE_MEMBER;
+            $user->save();
+
             return '根据您的信息，为您个性化推荐对象:http://123.57.27.16/users?my='.urlencode("3,2,1");
         }
     }
