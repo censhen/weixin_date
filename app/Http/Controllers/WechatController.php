@@ -172,17 +172,19 @@ class WechatController extends Controller {
             $user->age = $data[2];
             $user->city = $data[3];
             $user->wechat_account = $data[4];
+            $user->openid = $openid;
             $user->type = User::TYPE_MEMBER;
             $user->save();
 
             return "请回答以下三个问题，1.你是什么样的人。2.你想找什么样的人。回复消息格式:s2 a,b,c;a,d,e;c,b,d";
         } elseif($content = 's2') {
-            $user = User::where('openid','=', $openid)->get();
+            $user = User::where('openid','=', $openid)->first();
             if(!$user) {
                 return '请先输入您的个人信息';
             }
+            $data = substr($content, 3);
 
-            $user->features = Request::input('features');
+            $user->features = $data;
             $user->save();
 
             return '根据您的信息，为您个性化推荐对象:http://123.57.27.16/users?my='.urlencode("3,2,1");
