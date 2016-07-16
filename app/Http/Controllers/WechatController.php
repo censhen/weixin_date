@@ -177,7 +177,7 @@ class WechatController extends Controller {
             $user->save();
 
             return "请回答以下三个问题，1.你是什么样的人。2.你想找什么样的人。回复消息格式:s2 a,b,c;a,d,e;c,b,d";
-        } elseif($content = 's2') {
+        } elseif($command == 's2') {
             $user = User::where('openid','=', $openid)->first();
             if(!$user) {
                 return '请先输入您的个人信息';
