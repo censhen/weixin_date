@@ -122,12 +122,49 @@ class FrontendController extends Controller {
 
     public function getUsersByGender()
     {
+        $id = Request::input('id');
+        $self = User::where('id','=', $id)->get();
+
         $users = User::where('gender','=', Request::input('gender'))
             ->where('type','=',User::TYPE_MEMBER)
-            ->whereNotNull('reviews')
+//            ->whereNotNull('reviews')
             ->orderBy('id', 'desc')
             ->get();
 
+        $user_map = [];
+        foreach($users as $user) {
+            $rate = $this->similarity($self->feature, $user->feature);
+            $user_map[] = ['rate'=>$rate, 'user' => $user];
+        }
+
         return view('frontend.user_list', ['users'=>$users]);
     }
+
+    /**
+     * @param $a  '1,2,3;1,2,3'
+     * @param $b  '1,2,3;1,2,5'
+     * @return float
+     */
+    public function similarity($a, $b)
+    {
+        $a=rtrim($a, ";");
+        $b=rtrim($b, ';');
+
+        $featrue_a = explode(';', $a);
+        $featrue_b = explode(';', $b);
+
+        // compare
+        $total_rates = 0;
+        foreach($featrue_a as $index=>$vals) {
+            $val_arr_a = explode(',', $vals);
+            $val_arr_b = explode(',', $featrue_b[$index]);
+
+            $total = count($val_arr_a);
+            $same_ele = array_intersect($val_arr_a, $val_arr_b);
+            $total_rates += count($same_ele)/$total;
+        }
+
+        return $total_rates/count($featrue_a);
+    }
+
 }
