@@ -154,10 +154,11 @@ class WechatController extends Controller {
         if($content == '我要参加') {
             return '您好，请先输入您的基本信息，回复消息格式:  s1 姓名/昵称，性别，年龄，居住地，微信号';
         } elseif($command == 's1') {
-            $user = User::where('openid','=', $openid)->get();
+            $user = User::where('openid','=', $openid)->first();
             if(!$user) {
                 $user = new User();
             }
+
             $data = explode('，', substr($content, 3));
             if(count($data) != 5) {
                 $data = explode(',', substr($content, 3));
@@ -165,6 +166,7 @@ class WechatController extends Controller {
                     return '输入有误，请注意格式。';
                 }
             }
+
             $user->name = $data[0];
             $user->gender = $data[1];
             $user->age = $data[2];
