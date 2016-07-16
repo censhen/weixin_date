@@ -5,7 +5,8 @@
  * Date: 15-7-27
  * Time: 下午2:56
  */
-use Log, Request, Config, User;
+use Log, Request, Config;
+use App\User;
 use EasyWeChat\Foundation\Application;
 use EasyWeChat;
 //use EasyWeChat\Message\;
