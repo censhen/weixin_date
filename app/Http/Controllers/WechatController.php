@@ -153,7 +153,6 @@ class WechatController extends Controller {
         if($content == '我要参加') {
             return '您好，请先输入您的基本信息，回复消息格式:  s1 姓名/昵称，性别，年龄，居住地，微信号。';
         } elseif($command == 's1') {
-
             $user = User::where('openid','=', $openid)->get();
             if(!$user) {
                 $user = new User();
@@ -174,12 +173,7 @@ class WechatController extends Controller {
                 return '请先输入您的个人信息';
             }
 
-            $user->name = Request::input('name');
-            $user->gender = Request::input('gender');
-            $user->age = Request::input('age');
-            $user->city = Request::input('city');
-            $user->wechat_account = Request::input('wechat_account');
-            $user->type = User::TYPE_MEMBER;
+            $user->features = Request::input('features');
             $user->save();
 
             return '根据您的信息，为您个性化推荐对象:http://123.57.27.16/users?my='.urlencode("3,2,1");

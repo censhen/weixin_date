@@ -12,7 +12,12 @@ class AlterUserOpenid extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('users', function($table)
+        {
+            $table->string('openid')->default('');
+            $table->string('features')->default('');
+            $table->index('openid');
+        });
     }
 
     /**
@@ -22,6 +27,11 @@ class AlterUserOpenid extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('users', function($table)
+        {
+            $table->dropColumn('openid');
+            $table->dropColumn('features');
+            $table->dropIndex('openid');
+        });
     }
 }
