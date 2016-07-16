@@ -5,7 +5,7 @@
  * Date: 15-7-27
  * Time: 下午2:56
  */
-use Log, Request, Config;
+use Log, Request, Config, User;
 use EasyWeChat\Foundation\Application;
 use EasyWeChat;
 //use EasyWeChat\Message\;
@@ -151,18 +151,24 @@ class WechatController extends Controller {
 
         Log::info("[text]: {$content}");
         if($content == '我要参加') {
-            return '您好，请先输入您的基本信息，回复消息格式:  s1 姓名/昵称，性别，年龄，居住地，微信号。';
+            return '您好，请先输入您的基本信息，回复消息格式:  s1 姓名/昵称，性别，年龄，居住地，微信号';
         } elseif($command == 's1') {
             $user = User::where('openid','=', $openid)->get();
             if(!$user) {
                 $user = new User();
             }
-
-            $user->name = Request::input('name');
-            $user->gender = Request::input('gender');
-            $user->age = Request::input('age');
-            $user->city = Request::input('city');
-            $user->wechat_account = Request::input('wechat_account');
+            $data = explode('，', substr($content, 3));
+            if(count($data) != 5) {
+                $data = explode(',', substr($content, 3));
+                if(count($data) != 5) {
+                    return '输入有误，请注意格式。';
+                }
+            }
+            $user->name = $data[0];
+            $user->gender = $data[1];
+            $user->age = $data[2];
+            $user->city = $data[3];
+            $user->wechat_account = $data[4];
             $user->type = User::TYPE_MEMBER;
             $user->save();
 

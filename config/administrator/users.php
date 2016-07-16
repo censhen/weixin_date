@@ -48,15 +48,21 @@ return array(
         'city' => array(
             'title' => '居住地',
         ),
-        'height' => array(
-            'title' => '身高',
-        ),
+//        'height' => array(
+//            'title' => '身高',
+//        ),
         'self_intro' => array(
             'title' => '自我介绍',
         ),
-        'expectation' => array(
-            'title' => '期望',
+        'openid' => array(
+            'title' => 'openid',
         ),
+        'features' => array(
+            'title' => '特点',
+        ),
+//        'expectation' => array(
+//            'title' => '期望',
+//        ),
         'reviews' => array(
             'title' => '红娘评论',
         ),
