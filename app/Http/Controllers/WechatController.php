@@ -171,9 +171,9 @@ class WechatController extends Controller {
             $user_data = $user_service->get($openid);
 
             $user->name = $data[0];
-            $user->age = $data[2];
-            $user->city = $data[3];
-            $user->wechat_account = $data[4];
+            $user->age = $data[1];
+            $user->city = $data[2];
+            $user->wechat_account = $data[3];
             $user->openid = $openid;
             $user->type = User::TYPE_MEMBER;
             $user->photo1 = $user_data->headimgurl;
