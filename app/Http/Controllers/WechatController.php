@@ -153,7 +153,7 @@ class WechatController extends Controller {
 
         Log::info("[text]: {$content}");
         if($content == '我要参加') {
-            return '您好，请先输入您的基本信息，回复消息格式:  s1 姓名/昵称，性别，年龄，居住地，微信号';
+            return '您好，请先输入您的基本信息，回复消息格式:  s1 姓名/昵称，年龄，居住地，微信号';
         } elseif($command == 's1') {
             $user = User::where('openid','=', $openid)->first();
             if(!$user) {
@@ -170,15 +170,14 @@ class WechatController extends Controller {
             $user_service = EasyWeChat::user();
             $user_data = $user_service->get($openid);
 
-
             $user->name = $data[0];
-            $user->gender = $data[1];
             $user->age = $data[2];
             $user->city = $data[3];
             $user->wechat_account = $data[4];
             $user->openid = $openid;
             $user->type = User::TYPE_MEMBER;
             $user->photo1 = $user_data->headimgurl;
+            $user->gender = $user_data->sex;
             $user->save();
 
             return "请回答以下三个问题，1.你是什么样的人。2.你想找什么样的人。回复消息格式:s2 a,b,c;a,d,e;c,b,d";

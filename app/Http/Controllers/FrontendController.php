@@ -125,17 +125,26 @@ class FrontendController extends Controller {
         $input = Request::input('id');
         $id = base64_decode($input);
         $self = User::where('id','=', $id)->first();
+        if(!$self) {
+            return 'not exist';
+        }
+        if($self->gender == User::GENDER_MALE) {
+            $gender = User::GENDER_FEMALE;
+        } else {
+            $gender = User::GENDER_MALE;
+        }
 
         $users = User::where('type','=',User::TYPE_MEMBER)
+//            ->where('gender','=',$gender)
 //            ->whereNotNull('reviews')
             ->orderBy('id', 'desc')
             ->get();
 
         $user_map = [];
-        foreach($users as $user) {
-            $rate = $this->similarity($self->features, $user->features);
-            $user_map[] = ['rate'=>$rate, 'user' => $user];
-        }
+//        foreach($users as $user) {
+//            $rate = $this->similarity($self->features, $user->features);
+//            $user_map[] = ['rate'=>$rate, 'user' => $user];
+//        }
 
         return view('frontend.user_list', ['users'=>$users]);
     }
