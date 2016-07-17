@@ -161,9 +161,9 @@ class WechatController extends Controller {
             }
 
             $data = explode('，', substr($content, 3));
-            if(count($data) != 5) {
+            if(count($data) != 4) {
                 $data = explode(',', substr($content, 3));
-                if(count($data) != 5) {
+                if(count($data) != 4) {
                     return '输入有误，请注意格式。';
                 }
             }
