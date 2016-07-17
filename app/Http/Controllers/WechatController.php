@@ -135,6 +135,8 @@ class WechatController extends Controller {
 
                 if($message->EventKey == 'RELATION_ADVISOR') {
                     return '情感顾问，敬请期待。';
+                } elseif ($message->EventKey == 'USER_APPLY') {
+                    return '您好，请先输入您的基本信息，回复消息格式:  s1 姓名/昵称，年龄，居住地，微信号';
                 } else {
                     return '活动介绍功能正在制作中，敬请期待！';
                 }
@@ -210,8 +212,9 @@ class WechatController extends Controller {
         $raw_menu = [
             [
                 "name"=>"我要加入",
-                "type"=>"view",
-                "url"=>Config::get('wechat.domain')."/apply",
+                "type"=>"click",
+                "key"=>"USER_APPLY",
+//                "url"=>Config::get('wechat.domain')."/apply",
             ],
             [
                 "name"=>"匹配会员",
