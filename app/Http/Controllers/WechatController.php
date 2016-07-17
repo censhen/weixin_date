@@ -192,7 +192,7 @@ class WechatController extends Controller {
             $user->features = $data;
             $user->save();
 
-            return '根据您的信息，为您个性化推荐对象:http://123.57.27.16/users?my='.urlencode("3,2,1");
+            return '根据您的信息，为您个性化推荐对象:http://123.57.27.16/users?id='.base64_encode($user->id);
         }
     }
 
